@@ -8,6 +8,9 @@ namespace FilmCollection.Models
 {
     public class MoviesResponse
     {
+        [Key]
+        [Required]
+        public int MovieId { get; set; }
         [Required(ErrorMessage ="Category is required")]
         public string Category { get; set; }
         [Required(ErrorMessage = "Title is required")]
