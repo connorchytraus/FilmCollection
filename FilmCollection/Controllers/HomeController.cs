@@ -28,7 +28,19 @@ namespace FilmCollection.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Movies()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Movies(MoviesResponse mr)
+        {
+            return View("Confirmation", mr);
+        }
+
+        public IActionResult Confirmation()
         {
             return View();
         }
