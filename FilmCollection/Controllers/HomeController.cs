@@ -12,10 +12,12 @@ namespace FilmCollection.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private FilmCollectionContext _filmContext { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, FilmCollectionContext movie)
         {
             _logger = logger;
+            _filmContext = movie;
         }
 
         public IActionResult Index()
@@ -37,6 +39,9 @@ namespace FilmCollection.Controllers
         [HttpPost]
         public IActionResult Movies(MoviesResponse mr)
         {
+            _filmContext.Add(mr);
+            _filmContext.SaveChanges();
+
             return View("Confirmation", mr);
         }
 

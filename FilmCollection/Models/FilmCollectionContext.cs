@@ -15,5 +15,48 @@ namespace FilmCollection.Models
         }
 
         public DbSet<MoviesResponse> responses { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder mb)
+        {
+            mb.Entity<MoviesResponse>().HasData(
+
+                new MoviesResponse
+                {
+                    MovieId = 1,
+                    Category = "Sci-Fi",
+                    Title = "Interstellar",
+                    Year = 2014,
+                    Rating = "PG-13",
+                    Director = "Christopher Nolan",
+                    Edited = false,
+                    LentTo = "Connor",
+                    Notes = "good movie",
+                },
+                new MoviesResponse
+                {
+                    MovieId = 2,
+                    Category = "Action/Adventure",
+                    Title = "Puss 'n Boots",
+                    Year = 2022,
+                    Rating = "PG",
+                    Director = "Chris Miller",
+                    Edited = true,
+                    LentTo = "Hannah",
+                    Notes = "great movie",
+                },
+                new MoviesResponse
+                {
+                    MovieId = 3,
+                    Category = "Action",
+                    Title = "Top Gun: Maverick",
+                    Year = 2022,
+                    Rating = "PG-13",
+                    Director = "Joseph Kosinski",
+                    Edited = false,
+                    LentTo = "Cooper",
+                    Notes = "fav",
+                }
+                );
+        }
     }
 }
