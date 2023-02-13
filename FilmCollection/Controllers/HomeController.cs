@@ -39,10 +39,17 @@ namespace FilmCollection.Controllers
         [HttpPost]
         public IActionResult Movies(MoviesResponse mr)
         {
-            _filmContext.Add(mr);
-            _filmContext.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _filmContext.Add(mr);
+                _filmContext.SaveChanges();
 
-            return View("Confirmation", mr);
+                return View("Confirmation", mr);
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public IActionResult Confirmation()
