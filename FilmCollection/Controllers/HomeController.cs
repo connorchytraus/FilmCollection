@@ -24,8 +24,6 @@ namespace FilmCollection.Controllers
             return View();
         }
 
-    
-
         [HttpGet]
         public IActionResult Movies()
         {
@@ -64,7 +62,6 @@ namespace FilmCollection.Controllers
 
         public IActionResult MovieList()
         {
-            //maybe needs to be Responses?
             var moviesList = FilmContext.responses
                 .Include(x => x.Category)
                 .OrderBy(x => x.Category)
