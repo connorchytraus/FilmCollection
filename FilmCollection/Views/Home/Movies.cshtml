@@ -2,7 +2,7 @@
     ViewData["Title"] = "Movies";
 }
 
-@model FilmCollection.Models.MoviesResponse
+@model MoviesResponse
 
 
 <div class="text-center">
@@ -14,10 +14,10 @@
             <form method="post">
                 <label asp-for="CategoryId">Category:</label>
                 <select asp-for="CategoryId">
-                    <option value="">Select a Category</option>hi
-@*need to fix this*@
-                    @*@foreach (Category c in ViewBag.CategoriesX)*@
-                        @*{
+                    <option value="">Select a Category</option>
+
+                    @*@foreach (Category c in ViewBag.CategoriesX)
+                        {
                             <option value="@c.CategoryId">@c.CategoryName</option>
                         }*@
                 </select>

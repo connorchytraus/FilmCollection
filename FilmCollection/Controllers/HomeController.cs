@@ -46,6 +46,8 @@ namespace FilmCollection.Controllers
             }
             else
             {
+                ViewBag.CateogriesX = FilmContext.Categories.ToList();
+
                 return View();
             }
         }
@@ -87,12 +89,23 @@ namespace FilmCollection.Controllers
             FilmContext.Update(movie);
             FilmContext.SaveChanges();
 
-            return RedirectToAction("MoviesList");
+            return RedirectToAction("MovieList");
         }
 
-        public IActionResult Delete()
+        [HttpGet]
+        public IActionResult Delete(int movieid)
         {
-            return View();
+            var movie = FilmContext.responses.Single(x => x.MovieId == movieid);
+            return View(movie);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(MoviesResponse mr)
+        {
+            FilmContext.responses.Remove(mr);
+            FilmContext.SaveChanges();
+
+            return RedirectToAction("MovieList");
         }
     }
 }

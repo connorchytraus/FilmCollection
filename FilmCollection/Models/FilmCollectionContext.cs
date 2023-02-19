@@ -8,7 +8,7 @@ namespace FilmCollection.Models
 {
     public class FilmCollectionContext : DbContext
     {
-        //ccontstructor
+        //contstructor
         public FilmCollectionContext (DbContextOptions<FilmCollectionContext> options) : base (options)
         {
             

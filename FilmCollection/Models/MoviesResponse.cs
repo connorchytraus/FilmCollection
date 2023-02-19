@@ -11,7 +11,6 @@ namespace FilmCollection.Models
         [Key]
         [Required]
         public int MovieId { get; set; }
-        
         [Required(ErrorMessage = "Title is required")]
         public string Title { get; set; }
         [Required(ErrorMessage = "Year is required")]
