@@ -1,5 +1,4 @@
-﻿
-@{ 
+﻿@{ 
     ViewData["Title"] = "Movies";
 }
 
@@ -13,13 +12,14 @@
     <div class="container-fluid">
         <div class="text-left">
             <form method="post">
-                <label asp-for="Category">Category:</label>
+                <label asp-for="CategoryId">Category:</label>
                 <select asp-for="CategoryId">
-                    <option value="">Select a Category</option>
-                    @foreach (Category c in ViewBag.Categories)
-                        {
+                    <option value="">Select a Category</option>hi
+@*need to fix this*@
+                    @*@foreach (Category c in ViewBag.CategoriesX)*@
+                        @*{
                             <option value="@c.CategoryId">@c.CategoryName</option>
-                        }
+                        }*@
                 </select>
                 <br />
 

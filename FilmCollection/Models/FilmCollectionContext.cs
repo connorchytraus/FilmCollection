@@ -20,7 +20,7 @@ namespace FilmCollection.Models
         protected override void OnModelCreating(ModelBuilder mb)
         {
             mb.Entity<Category>().HasData(
-                new Category { CategoryId = 1, CategoryName="Sci-Fi"},
+                new Category { CategoryId = 1, CategoryName= "Sci-Fi"},
                 new Category { CategoryId = 2, CategoryName = "Action" },
                 new Category { CategoryId = 3, CategoryName = "Adventure" },
                 new Category { CategoryId = 4, CategoryName = "Thriller" },
@@ -28,7 +28,7 @@ namespace FilmCollection.Models
                 new Category { CategoryId = 6, CategoryName = "Western" },
                 new Category { CategoryId = 7, CategoryName = "Horror" },
                 new Category { CategoryId = 8, CategoryName = "Unknown" }
-                );
+           );
 
 
 

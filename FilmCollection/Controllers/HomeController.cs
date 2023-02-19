@@ -29,7 +29,7 @@ namespace FilmCollection.Controllers
         [HttpGet]
         public IActionResult Movies()
         {
-            ViewBag.Cateogries = FilmContext.Categories.ToList();
+            ViewBag.CateogriesX = FilmContext.Categories.ToList();
 
             return View();
         }
@@ -69,6 +69,30 @@ namespace FilmCollection.Controllers
                 .ToList();
 
             return View(moviesList);
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int movieid)
+        {
+            ViewBag.CategoriesX = FilmContext.Categories.ToList();
+
+            var movie = FilmContext.responses.Single(x => x.MovieId == movieid);
+
+            return View("Movies", movie);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(MoviesResponse movie)
+        {
+            FilmContext.Update(movie);
+            FilmContext.SaveChanges();
+
+            return RedirectToAction("MoviesList");
+        }
+
+        public IActionResult Delete()
+        {
+            return View();
         }
     }
 }
