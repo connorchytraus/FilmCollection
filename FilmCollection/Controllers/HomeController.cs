@@ -1,5 +1,6 @@
 ﻿using FilmCollection.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,8 @@ namespace FilmCollection.Controllers
         [HttpGet]
         public IActionResult Movies()
         {
+            ViewBag.Cateogries = FilmContext.Categories.ToList();
+
             return View();
         }
 
@@ -61,6 +64,7 @@ namespace FilmCollection.Controllers
         {
             //maybe needs to be Responses?
             var moviesList = FilmContext.responses
+                .Include(x => x.Category)
                 .OrderBy(x => x.Category)
                 .ToList();
 

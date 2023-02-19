@@ -7,7 +7,7 @@ namespace FilmCollection.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Category",
+                name: "Categories",
                 columns: table => new
                 {
                     CategoryId = table.Column<int>(nullable: false)
@@ -16,7 +16,7 @@ namespace FilmCollection.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Category", x => x.CategoryId);
+                    table.PrimaryKey("PK_Categories", x => x.CategoryId);
                 });
 
             migrationBuilder.CreateTable(
@@ -38,12 +38,52 @@ namespace FilmCollection.Migrations
                 {
                     table.PrimaryKey("PK_responses", x => x.MovieId);
                     table.ForeignKey(
-                        name: "FK_responses_Category_CategoryId",
+                        name: "FK_responses_Categories_CategoryId",
                         column: x => x.CategoryId,
-                        principalTable: "Category",
+                        principalTable: "Categories",
                         principalColumn: "CategoryId",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryId", "CategoryName" },
+                values: new object[] { 1, "Sci-Fi" });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryId", "CategoryName" },
+                values: new object[] { 2, "Action" });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryId", "CategoryName" },
+                values: new object[] { 3, "Adventure" });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryId", "CategoryName" },
+                values: new object[] { 4, "Thriller" });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryId", "CategoryName" },
+                values: new object[] { 5, "Romance" });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryId", "CategoryName" },
+                values: new object[] { 6, "Western" });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryId", "CategoryName" },
+                values: new object[] { 7, "Horror" });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryId", "CategoryName" },
+                values: new object[] { 8, "Unknown" });
 
             migrationBuilder.InsertData(
                 table: "responses",
@@ -53,12 +93,12 @@ namespace FilmCollection.Migrations
             migrationBuilder.InsertData(
                 table: "responses",
                 columns: new[] { "MovieId", "CategoryId", "Director", "Edited", "LentTo", "Notes", "Rating", "Title", "Year" },
-                values: new object[] { 2, 2, "Chris Miller", true, "Hannah", "great movie", "PG", "Puss 'n Boots", 2022 });
+                values: new object[] { 3, 2, "Joseph Kosinski", false, "Cooper", "fav", "PG-13", "Top Gun: Maverick", 2022 });
 
             migrationBuilder.InsertData(
                 table: "responses",
                 columns: new[] { "MovieId", "CategoryId", "Director", "Edited", "LentTo", "Notes", "Rating", "Title", "Year" },
-                values: new object[] { 3, 3, "Joseph Kosinski", false, "Cooper", "fav", "PG-13", "Top Gun: Maverick", 2022 });
+                values: new object[] { 2, 3, "Chris Miller", true, "Hannah", "great movie", "PG", "Puss 'n Boots", 2022 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_responses_CategoryId",
@@ -72,7 +112,7 @@ namespace FilmCollection.Migrations
                 name: "responses");
 
             migrationBuilder.DropTable(
-                name: "Category");
+                name: "Categories");
         }
     }
 }

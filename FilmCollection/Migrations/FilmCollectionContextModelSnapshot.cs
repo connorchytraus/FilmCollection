@@ -26,7 +26,49 @@ namespace FilmCollection.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Category");
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            CategoryName = "Sci-Fi"
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            CategoryName = "Action"
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            CategoryName = "Adventure"
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            CategoryName = "Thriller"
+                        },
+                        new
+                        {
+                            CategoryId = 5,
+                            CategoryName = "Romance"
+                        },
+                        new
+                        {
+                            CategoryId = 6,
+                            CategoryName = "Western"
+                        },
+                        new
+                        {
+                            CategoryId = 7,
+                            CategoryName = "Horror"
+                        },
+                        new
+                        {
+                            CategoryId = 8,
+                            CategoryName = "Unknown"
+                        });
                 });
 
             modelBuilder.Entity("FilmCollection.Models.MoviesResponse", b =>
@@ -85,7 +127,7 @@ namespace FilmCollection.Migrations
                         new
                         {
                             MovieId = 2,
-                            CategoryId = 2,
+                            CategoryId = 3,
                             Director = "Chris Miller",
                             Edited = true,
                             LentTo = "Hannah",
@@ -97,7 +139,7 @@ namespace FilmCollection.Migrations
                         new
                         {
                             MovieId = 3,
-                            CategoryId = 3,
+                            CategoryId = 2,
                             Director = "Joseph Kosinski",
                             Edited = false,
                             LentTo = "Cooper",
