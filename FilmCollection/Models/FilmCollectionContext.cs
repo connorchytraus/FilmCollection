@@ -23,7 +23,7 @@ namespace FilmCollection.Models
                 new MoviesResponse
                 {
                     MovieId = 1,
-                    Category = "Sci-Fi",
+                    CategoryId = 1,
                     Title = "Interstellar",
                     Year = 2014,
                     Rating = "PG-13",
@@ -35,7 +35,7 @@ namespace FilmCollection.Models
                 new MoviesResponse
                 {
                     MovieId = 2,
-                    Category = "Action/Adventure",
+                    CategoryId = 2,
                     Title = "Puss 'n Boots",
                     Year = 2022,
                     Rating = "PG",
@@ -47,7 +47,7 @@ namespace FilmCollection.Models
                 new MoviesResponse
                 {
                     MovieId = 3,
-                    Category = "Action",
+                    CategoryId = 3,
                     Title = "Top Gun: Maverick",
                     Year = 2022,
                     Rating = "PG-13",

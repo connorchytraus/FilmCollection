@@ -11,8 +11,7 @@ namespace FilmCollection.Models
         [Key]
         [Required]
         public int MovieId { get; set; }
-        [Required(ErrorMessage ="Category is required")]
-        public string Category { get; set; }
+        
         [Required(ErrorMessage = "Title is required")]
         public string Title { get; set; }
         [Required(ErrorMessage = "Year is required")]
@@ -25,5 +24,9 @@ namespace FilmCollection.Models
         public string LentTo { get; set; }
         [StringLength(25)]
         public string Notes { get; set; }
+
+        //foreign key relationship
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
     }
 }

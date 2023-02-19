@@ -11,13 +11,11 @@ namespace FilmCollection.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private FilmCollectionContext _filmContext { get; set; }
+        private FilmCollectionContext FilmContext { get; set; }
 
-        public HomeController(ILogger<HomeController> logger, FilmCollectionContext movie)
+        public HomeController(FilmCollectionContext movie)
         {
-            _logger = logger;
-            _filmContext = movie;
+            FilmContext = movie;
         }
 
         public IActionResult Index()
@@ -25,10 +23,7 @@ namespace FilmCollection.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+    
 
         [HttpGet]
         public IActionResult Movies()
@@ -41,8 +36,8 @@ namespace FilmCollection.Controllers
         {
             if (ModelState.IsValid)
             {
-                _filmContext.Add(mr);
-                _filmContext.SaveChanges();
+                FilmContext.Add(mr);
+                FilmContext.SaveChanges();
 
                 return View("Confirmation", mr);
             }
@@ -57,10 +52,19 @@ namespace FilmCollection.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult Privacy()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
+        }
+
+        public IActionResult MovieList()
+        {
+            //maybe needs to be Responses?
+            var moviesList = FilmContext.responses
+                .OrderBy(x => x.Category)
+                .ToList();
+
+            return View(moviesList);
         }
     }
 }
