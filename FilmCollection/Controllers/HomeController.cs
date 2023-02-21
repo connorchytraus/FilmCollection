@@ -29,7 +29,7 @@ namespace FilmCollection.Controllers
         {
             ViewBag.CateogriesX = FilmContext.Categories.ToList();
 
-            return View();
+            return View("Movies", new MoviesResponse());
         }
 
         [HttpPost]

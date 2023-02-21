@@ -15,17 +15,18 @@
                 <label asp-for="CategoryId">Category:</label>
                 <select asp-for="CategoryId">
                     <option value="">Select a Category</option>
-
-                    @*@foreach (Category c in ViewBag.CategoriesX)
-                        {
-                            <option value="@c.CategoryId">@c.CategoryName</option>
-                        }*@
+                        @foreach (Category c in ViewBag.CategoriesX)
+                            {
+                                <option value="@c.CategoryId">@c.CategoryName</option>
+                            }
                 </select>
                 <br />
 
                 <label asp-for="Title">Title:</label>
                 <input asp-for="Title" />
                 <br />
+
+                <input asp-for="MovieId" type="hidden"/>
 
                 <label asp-for="Year">Year:</label>
                 <input asp-for="Year" />
